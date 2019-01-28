@@ -3,12 +3,70 @@
   <head>
     <meta charset="utf-8">
     <title>Caesar Cipher</title>
+    <!-- Link a mi archivo CSS-->
     <link rel="stylesheet" href="style.css" />
+    <!--Links a mis fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
   </head>
   <body>
-    <div id="root">
-      <h1>Hola mundo!</h1>
+
+    <!-- Imagen de fondo-->
+    <img id="background" src="https://external-preview.redd.it/lrO9QICCD20h2L5_p03-DqW6Nq25ahd1Dg2gYxhRW1c.png?auto=webp&s=67d764468ca5faa45c4b9f09e7f0347b5bf73f98" alt="matrixBackground">
+    <!-- la pongo aqui para que se mantenga durante toda la webapp-->
+
+    <!--Division con la pantalla de inicio-->
+    <div id="root" align="center">
+
+      <!--Titulo de la pagina-->
+      <h1>e n i g m a</h1>
+      <!--Break para dejar espacio entre la forma y el boton-->
+      <br>
+
+      <!--Le pido al usuario su nombre-->
+      <p>Ingresa tu nombre</p>
+
+      <!-- Forma donde el usuario escribe su nombre en un input-->
+      <form class="" action="index.html" method="post">
+        <input id="userName" type="text" name="userName" value="">
+        <!--Break para dejar espacio entre la forma y el boton-->
+        <br> <br>
+      </form>
+
+      <!--Boton para comenzar y pasarme a la pantalla de menu-->
+      <button id= 'starButton' type="button" onclick="menu('root', 'menu');"> Comenzar </button> <br>
+
     </div>
+
+    <!-- Division con la pantalla de menu-->
+    <div id="menu">
+
+      <!--Titulo de la pagina-->
+      <h1>e n i g m a</h1>
+
+      <!--Le pido doy la bienvenida al usuario y le pregunto que quiere hacer-->
+      <p id="bienvenida"></p>
+
+      <!--Break para dejar espacio entre la forma y el boton-->
+      <br>
+
+      <div id="locks">
+
+        <!--Imagen de tipo boton del candado abierto, representando codificar-->
+        <a href="">
+        <img id="openLock" src="C:\Users\ilytr\Desktop\Laboratoria\Las Pitayas\Cifrado Cesar\open.png" alt="openLock">
+        </a>
+
+        <!--Imagen de tipo boton del candado cerrado, representando decodificar-->
+        <a href="#">
+        <img id="closedLock" src="C:\Users\ilytr\Desktop\Laboratoria\Las Pitayas\Cifrado Cesar\closed.png" alt="closedLock">
+        </a>
+
+      </div>
+
+    </div>
+
     <script src="cipher.js"></script>
     <script src="index.js"></script>
   </body>
