@@ -51,19 +51,66 @@
       <!--Break para dejar espacio entre la forma y el boton-->
       <br>
 
+      <!--Division para acomodar las imagenes de los candados-->
       <div id="locks">
 
-        <!--Imagen de tipo boton del candado abierto, representando codificar-->
-        <a href="">
-        <img id="openLock" src="C:\Users\ilytr\Desktop\Laboratoria\Las Pitayas\Cifrado Cesar\open.png" alt="openLock">
-        </a>
+        <!--Utilizo elemento de figura para poder usar caption debajo de la imagen-->
+        <figure>
+          <!--Imagen de tipo boton del candado abierto, representando codificar-->
+          <a href="javascript:infoInput('menu', 'information'); javascript:cipher(); javascript:sliderValue();">
+          <!--Obtengo la imagen de mi PC-->
+          <img id="openLock" src="C:\Users\Ily\Desktop\Laboratoria\Las picayas\Cifrado cesar\unlocked.png" alt="openLock">
+          </a>
+          <!--En la caption especifico que este boton es para cifrar-->
+          <figcaption>Cifrar</figcaption>
+        </figure>
 
-        <!--Imagen de tipo boton del candado cerrado, representando decodificar-->
-        <a href="#">
-        <img id="closedLock" src="C:\Users\ilytr\Desktop\Laboratoria\Las Pitayas\Cifrado Cesar\closed.png" alt="closedLock">
-        </a>
+        <!--Utilizo elemento de figura para poder usar caption debajo de la imagen-->
+        <figure>
+          <!--Imagen de tipo boton del candado cerrado, representando decodificar-->
+          <a href="javascript:infoInput('menu', 'information')">
+          <!--Obtengo la imagen de mi PC-->
+          <img id="closedLock" src="C:\Users\Ily\Desktop\Laboratoria\Las picayas\Cifrado cesar\locked.png" alt="closedLock">
+          </a>
+          <!--En la caption especifico que este boton es para decifrar-->
+          <figcaption>Decifrar</figcaption>
+        </figure>
 
       </div>
+
+    </div>
+
+    <!--Division con la pantalla donde el usuario ingreta el texto y los caracteres a desplazar-->
+    <div id="information">
+
+      <!--Titulo de la pagina-->
+      <h1>e n i g m a</h1>
+      <br>
+
+      <!--Parrafo donde se muestra el mensaje de instruccion-->
+      <p id="inputInfo"></p>
+
+      <!--Text input-->
+      <input id="userText" type="text" name="" value="" class="textbox">
+      <br> <br>
+
+      <!--Slider para que el usuario decida el valor de desplazamiento de caracteres-->
+      <div class="sliderContainer">
+        <input type="range" min="1" max="50" value="25" id="offset" class="slider">
+      </div>
+
+      <!--Parrafo donde muestro el valor del slider-->
+      <p id="sliderV"></p>
+      <br>
+
+      <!--Boton para cifrar mensaje y mostrar resultado-->
+      <button id="enterInfo" onclick="getValues();" type="button" name="button"></button>
+      <br><br>
+
+      <!--Cuadro de texto deshabilitado para mostrar el resultado-->
+      <input id="result" type="text" name="" value="Aquí se mostrará el resultado" class="textbox" disabled>
+
+
 
     </div>
 

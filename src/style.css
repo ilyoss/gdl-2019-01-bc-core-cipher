@@ -36,6 +36,7 @@ button{
   background-color: #A9A9A9;
   border-radius: 12px;
   width: 190px;
+  margin: auto;
 }
 
 button:hover{
@@ -55,19 +56,81 @@ button:hover{
 
 #openLock{
   padding: 20px;
-  width: 185px;
-
+  width: 60%;
+  display: inline-block;
+  margin: auto;
 }
 
 #closedLock{
   padding: 20px;
-  width: 300px;
+  width: 60%;
+  display: inline-block;
+  margin: auto;
 }
 
 #locks{
-  justify-content: center;
+  text-align: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+}
+
+figcaption{
+  font-family: 'Lato', sans-serif;
+  color: white;
+  font-size: 30px;
+  caption-side: bottom;
+  text-align: center;
+}
+
+figure{
+  display: inline-block;
+  text-align: center;
+  width: 20%;
+  height: auto;
+}
+
+.textbox{
+  width: 500px;
+  height: 100px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.slider{
+  -webkit-appearance: none;
+  width: 30%;
+  height: 15px;
+  border-radius: 5px;
+  background: white;
+  outline: none;
+  opacity: 0.7;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.sliderContainer{
+  display: block;
+  text-align: center;
+}
+
+#result{
+  background-color: #dddddd;
 }
