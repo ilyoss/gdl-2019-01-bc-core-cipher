@@ -29,7 +29,7 @@
 
       <!-- Forma donde el usuario escribe su nombre en un input-->
       <form class="" action="index.html" method="post">
-        <input id="userName" type="text" name="userName" value="">
+        <input id="userName" type="text" name="userName" value=""autofocus="autofocus">
         <!--Break para dejar espacio entre la forma y el boton-->
         <br> <br>
       </form>
@@ -59,7 +59,7 @@
           <!--Imagen de tipo boton del candado abierto, representando codificar-->
           <a href="javascript:infoInput('menu', 'information'); javascript:cipher(); javascript:sliderValue();">
           <!--Obtengo la imagen de mi PC-->
-          <img id="openLock" src="C:\Users\Ily\Desktop\Laboratoria\Las picayas\Cifrado cesar\unlocked.png" alt="openLock">
+          <img id="openLock" src="C:\Users\ilytr\Desktop\Laboratoria\Las Pitayas\Cifrado Cesar\unlocked.png" alt="openLock">
           </a>
           <!--En la caption especifico que este boton es para cifrar-->
           <figcaption>Cifrar</figcaption>
@@ -68,9 +68,9 @@
         <!--Utilizo elemento de figura para poder usar caption debajo de la imagen-->
         <figure>
           <!--Imagen de tipo boton del candado cerrado, representando decodificar-->
-          <a href="javascript:infoInput('menu', 'information')">
+          <a href="javascript:infoInput('menu', 'information'); javascript:decipher(); javascript:sliderValue();">
           <!--Obtengo la imagen de mi PC-->
-          <img id="closedLock" src="C:\Users\Ily\Desktop\Laboratoria\Las picayas\Cifrado cesar\locked.png" alt="closedLock">
+          <img id="closedLock" src="C:\Users\ilytr\Desktop\Laboratoria\Las Pitayas\Cifrado Cesar\locked.png" alt="closedLock">
           </a>
           <!--En la caption especifico que este boton es para decifrar-->
           <figcaption>Decifrar</figcaption>
@@ -85,27 +85,34 @@
 
       <!--Titulo de la pagina-->
       <h1>e n i g m a</h1>
-      <br>
 
       <!--Parrafo donde se muestra el mensaje de instruccion-->
       <p id="inputInfo"></p>
 
       <!--Text input-->
       <input id="userText" type="text" name="" value="" class="textbox">
-      <br> <br>
 
+      <!--Signo de pregunta en la esquina derecha, para explicar lo que representa el desplazamiento, se activa con hover-->
+      <div class="help-tip">
+        <p>Para este cifrado, una letra en el texto original es reemplazada por otra letra que se encuentra un número fijo de posiciones
+          más adelante en el alfabeto. El numero fijo es el valor de desplazamiento que escogas.</p>
+      </div>
+
+      <!--Parrafo donde se muestra que el slider es para el dato de desplazamiento (offset)-->
+      <p>Ingresa el valor de desplazamiento.</p>
       <!--Slider para que el usuario decida el valor de desplazamiento de caracteres-->
       <div class="sliderContainer">
         <input type="range" min="1" max="50" value="25" id="offset" class="slider">
       </div>
 
+
+
       <!--Parrafo donde muestro el valor del slider-->
       <p id="sliderV"></p>
-      <br>
 
       <!--Boton para cifrar mensaje y mostrar resultado-->
       <button id="enterInfo" onclick="getValues();" type="button" name="button"></button>
-      <br><br>
+      <br>
 
       <!--Cuadro de texto deshabilitado para mostrar el resultado-->
       <input id="result" type="text" name="" value="Aquí se mostrará el resultado" class="textbox" disabled>
@@ -113,7 +120,7 @@
 
 
     </div>
-
+    <!--Llamo a los archivos de javascript a usar en mi proyecto-->
     <script src="cipher.js"></script>
     <script src="index.js"></script>
   </body>

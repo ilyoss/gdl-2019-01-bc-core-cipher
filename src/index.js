@@ -1,6 +1,5 @@
 //Funcion para reiniciar mis valores base, sirve para iniciar las pantallas en "hidden" y reiniciar valores
 //si el usuario quiere cifrar o decifrar un mensaje nuevo
-
 function reset(){
   document.getElementById("menu").style.display = 'none';
   document.getElementById("information").style.display = 'none';
@@ -9,6 +8,7 @@ function reset(){
 
 //La inicio para que el programa corra "limpio"
 reset();
+console.log(flag);
 
 //Funcion para "cambiar" de ventanas
 function toggleVisibility(div1, div2){
@@ -58,6 +58,13 @@ function cipher(){
   document.getElementById("enterInfo").innerHTML = "Cifrar";
 }
 
+//Funcion que determina el mensaje que se muestra para decifrar
+function decipher(){
+  let title = "Ingresa tu mensaje a decifrar. Recuerda usar mayúsculas únicamente y no utilizar 'ñ' o caracteres especiales.";
+  document.getElementById("inputInfo").innerHTML = title;
+  document.getElementById("enterInfo").innerHTML = "Decifrar";
+}
+
 //Funcion para mostrar como texto el valor del slider al usuario
 function sliderValue(){
 
@@ -70,14 +77,23 @@ function sliderValue(){
   }
 }
 
+//Funcion para tomar los valores actuales de texto y de desplazamiento y encriptar el mensaje
+//Se inicializa con el boton de Cifrar
 function getValues(){
-  let offset = document.getElementById("sliderV").innerHTML.value;
-  let string = document.getElementById("userText").innerHTML;
+  let offset = document.getElementById("offset").value;
+  let string = document.getElementById("userText").value;
 
-  cipher.encode(offset,string);
+  if(document.getElementById("enterInfo").value = "Cifrar"){
+    encode(offset, string);
+  }
+  else{
+    decode(offset, string);
+  }
+
 }
 
+//Funcion para mostrar el mensaje cifrado, se recibe del cipher.js y se muestra en el objeto.
 function displayResult(string){
-  document.getElementById("result").innerHTML.value = string;
+  document.getElementById("result").value = string;
   console.log(string);
 }
