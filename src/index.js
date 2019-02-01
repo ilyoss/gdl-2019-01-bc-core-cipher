@@ -1,9 +1,10 @@
+
+let flag = false;
 //Funcion para reiniciar mis valores base, sirve para iniciar las pantallas en "hidden" y reiniciar valores
 //si el usuario quiere cifrar o decifrar un mensaje nuevo
 function reset(){
   document.getElementById("menu").style.display = 'none';
   document.getElementById("information").style.display = 'none';
-
 }
 
 //La inicio para que el programa corra "limpio"
@@ -32,6 +33,7 @@ function toggleVisibility(div1, div2){
   }
 }
 
+
 //Funcion que se activa al hacer click en el boton de "Comenzar", para ir al menu
 function menu(root, menu){
   toggleVisibility(root,menu);
@@ -52,17 +54,21 @@ function greeting(){
 }
 
 //Funcion que determina el mensaje que se muestra para cifrar
-function cipher(){
+function cipherSelection(){
   let title = "Ingresa tu mensaje a cifrar. Recuerda usar mayúsculas únicamente y no utilizar 'ñ' o caracteres especiales.";
   document.getElementById("inputInfo").innerHTML = title;
   document.getElementById("enterInfo").innerHTML = "Cifrar";
+  flag = true;
+  console.log(flag);
 }
 
 //Funcion que determina el mensaje que se muestra para decifrar
-function decipher(){
+function decipherSelection(){
   let title = "Ingresa tu mensaje a decifrar. Recuerda usar mayúsculas únicamente y no utilizar 'ñ' o caracteres especiales.";
   document.getElementById("inputInfo").innerHTML = title;
   document.getElementById("enterInfo").innerHTML = "Decifrar";
+  flag = false;
+  console.log(flag);
 }
 
 //Funcion para mostrar como texto el valor del slider al usuario
@@ -82,15 +88,18 @@ function sliderValue(){
 function getValues(){
   let offset = document.getElementById("offset").value;
   let string = document.getElementById("userText").value;
+  let result;
 
-  if(document.getElementById("enterInfo").value = "Cifrar"){
-    encode(offset, string);
+  if(flag == false){
+    result = cipher.decode(offset, string);
   }
   else{
-    decode(offset, string);
+    result = cipher.encode(offset, string);
   }
 
+  displayResult(result);
 }
+
 
 //Funcion para mostrar el mensaje cifrado, se recibe del cipher.js y se muestra en el objeto.
 function displayResult(string){

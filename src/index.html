@@ -35,7 +35,7 @@
       </form>
 
       <!--Boton para comenzar y pasarme a la pantalla de menu-->
-      <button id= 'starButton' type="button" onclick="menu('root', 'menu');"> Comenzar </button> <br>
+      <button id="startButton" onclick="menu('root', 'menu')"type="button"> Comenzar </button> <br>
 
     </div>
 
@@ -57,7 +57,7 @@
         <!--Utilizo elemento de figura para poder usar caption debajo de la imagen-->
         <figure>
           <!--Imagen de tipo boton del candado abierto, representando codificar-->
-          <a href="javascript:infoInput('menu', 'information'); javascript:cipher(); javascript:sliderValue();">
+          <a href="javascript:infoInput('menu', 'information'); javascript:cipherSelection(); javascript:sliderValue();">
           <!--Obtengo la imagen de mi PC-->
           <img id="openLock" src="C:\Users\ilytr\Desktop\Laboratoria\Las Pitayas\Cifrado Cesar\unlocked.png" alt="openLock">
           </a>
@@ -68,7 +68,7 @@
         <!--Utilizo elemento de figura para poder usar caption debajo de la imagen-->
         <figure>
           <!--Imagen de tipo boton del candado cerrado, representando decodificar-->
-          <a href="javascript:infoInput('menu', 'information'); javascript:decipher(); javascript:sliderValue();">
+          <a href="javascript:infoInput('menu', 'information'); javascript:decipherSelection(); javascript:sliderValue();">
           <!--Obtengo la imagen de mi PC-->
           <img id="closedLock" src="C:\Users\ilytr\Desktop\Laboratoria\Las Pitayas\Cifrado Cesar\locked.png" alt="closedLock">
           </a>
