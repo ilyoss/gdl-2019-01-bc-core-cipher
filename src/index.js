@@ -1,5 +1,12 @@
-
 let flag = false;
+
+//Event listeners para mi boton de Comenzar y de Cifrar/Decifrar
+document.getElementById("enterInfo").addEventListener("click", getValues);
+document.getElementById("startButton").addEventListener("click", menu);
+//Event listeners para los botones de regresar al menu y Salir
+document.getElementById("backToMenu").addEventListener("click", refresh);
+document.getElementById("exit").addEventListener("click", exit);
+
 //Funcion para reiniciar mis valores base, sirve para iniciar las pantallas en "hidden" y reiniciar valores
 //si el usuario quiere cifrar o decifrar un mensaje nuevo
 function reset(){
@@ -9,7 +16,6 @@ function reset(){
 
 //La inicio para que el programa corra "limpio"
 reset();
-console.log(flag);
 
 //Funcion para "cambiar" de ventanas
 function toggleVisibility(div1, div2){
@@ -33,10 +39,19 @@ function toggleVisibility(div1, div2){
   }
 }
 
+//Funcion para cerrar la ventana si el usuario ya no va a usar el programa.
+function exit(){
+  window.close();
+}
+
+//Funcion para regresar al menu inicial
+function refresh(){
+  toggleVisibility("information", "menu");
+}
 
 //Funcion que se activa al hacer click en el boton de "Comenzar", para ir al menu
-function menu(root, menu){
-  toggleVisibility(root,menu);
+function menu(){
+  toggleVisibility("root","menu");
   greeting();
 }
 
@@ -59,7 +74,6 @@ function cipherSelection(){
   document.getElementById("inputInfo").innerHTML = title;
   document.getElementById("enterInfo").innerHTML = "Cifrar";
   flag = true;
-  console.log(flag);
 }
 
 //Funcion que determina el mensaje que se muestra para decifrar
@@ -68,7 +82,6 @@ function decipherSelection(){
   document.getElementById("inputInfo").innerHTML = title;
   document.getElementById("enterInfo").innerHTML = "Decifrar";
   flag = false;
-  console.log(flag);
 }
 
 //Funcion para mostrar como texto el valor del slider al usuario
@@ -86,23 +99,27 @@ function sliderValue(){
 //Funcion para tomar los valores actuales de texto y de desplazamiento y encriptar el mensaje
 //Se inicializa con el boton de Cifrar
 function getValues(){
-  let offset = document.getElementById("offset").value;
+  //Guardo los valores en variables antes de enviarlos a mi funcion
+  let offset = parseInt(document.getElementById("offset").value);
   let string = document.getElementById("userText").value;
-  let result;
 
-  if(flag == false){
-    result = cipher.decode(offset, string);
-  }
-  else{
+  //Mi variable flag define su valor dependiendo de la seleccion del usuario en el menu
+  //Si mi flag es true, va a codificar
+  if(flag === true){
+    //Variable donde voy a guardar el resultado del return de la funcion
     result = cipher.encode(offset, string);
   }
+  //Si la flag es false, va a decodificar
+  else{
+    result = cipher.decode(offset, string);
+  }
 
+  //Llamo a mi funcion para mostrar el resultado en mi HTML
   displayResult(result);
 }
 
 
 //Funcion para mostrar el mensaje cifrado, se recibe del cipher.js y se muestra en el objeto.
-function displayResult(string){
-  document.getElementById("result").value = string;
-  console.log(string);
+function displayResult(result){
+  document.getElementById("result").value = result;
 }

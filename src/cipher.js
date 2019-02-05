@@ -5,6 +5,7 @@ window.cipher = {
 
     //Declaro un string nuevo vacio donde voy a guardar mi mensaje encriptado
     let newString = '';
+    //Inicializo aqui mi variable del ciclo
     let i;
 
     //Ciclo for para encriptar letra por letra
@@ -12,12 +13,15 @@ window.cipher = {
 
       //Guardo el caracter en la posicion i en una variable
       let x = string.charCodeAt(i);
+
+      //Codigo para letras MAYUSCULAS
       //Aplico la formula de cifrado y guardo el caracter nuevo en una variable
       let y = String.fromCharCode(((x - 65 + offset)%26) + 65);
       //Actualizo mi nuevo string, concatenando las letras cifradas
-      newString = newString + y;
+      newString += y;
 
     }
+    //Envio el string desencriptado para mostrarlo desde index.js
     return(newString);
   },
 
@@ -34,13 +38,14 @@ window.cipher = {
       //Guardo el caracter en la posicion i en una variable
       let x = string.charCodeAt(i);
 
+      //Codigo para MAYUSCULAS
       //Aplico la formula de decifrado y guardo el caracter nuevo en una variable
       let y = String.fromCharCode(((x - 90 - offset) % 26) + 90);
       //Actualizo mi nuevo string, concatenando las letras cifradas
       newString = newString + y;
-      }
 
-      //Envio el string desencriptado para mostrarlo desde index.js
-      return(newString);
+    }
+    //Envio el string desencriptado para mostrarlo desde index.js
+    return(newString);
     }
 };

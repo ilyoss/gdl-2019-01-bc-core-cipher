@@ -83,6 +83,15 @@ button:hover{
   margin-right: auto;
 }
 
+#backToMenu{
+  display: inline-block;
+}
+
+#exit{
+  display: inline-block;
+  float: right;
+}
+
 figcaption{
   font-family: 'Lato', sans-serif;
   color: white;
