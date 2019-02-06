@@ -47,6 +47,8 @@ function exit(){
 //Funcion para regresar al menu inicial
 function refresh(){
   toggleVisibility("information", "menu");
+  document.getElementById("userText").value = "";
+  document.getElementById("result").value = "Aquí se mostrará el resultado";
 }
 
 //Funcion que se activa al hacer click en el boton de "Comenzar", para ir al menu
