@@ -7,7 +7,6 @@ window.cipher = {
     let newString = '';
     //Inicializo aqui mi variable del ciclo
     let i;
-    let sValue;
     let y;
 
     //Ciclo for para encriptar letra por letra
@@ -43,7 +42,6 @@ window.cipher = {
     //Declaro un string nuevo vacio donde voy a guardar mi mensaje desencriptado
     let newString = '';
     let i;
-    let sValue;
     let y;
 
     //Ciclo for para desencriptar letra por letra
