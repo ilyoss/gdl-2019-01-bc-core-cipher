@@ -6,6 +6,7 @@ document.getElementById("startButton").addEventListener("click", menu);
 //Event listeners para los botones de regresar al menu y Salir
 document.getElementById("backToMenu").addEventListener("click", refresh);
 document.getElementById("exit").addEventListener("click", exit);
+document.getElementById("copy").addEventListener("click", copy);
 
 //Funcion para reiniciar mis valores base, sirve para iniciar las pantallas en "hidden" y reiniciar valores
 //si el usuario quiere cifrar o decifrar un mensaje nuevo
@@ -44,6 +45,32 @@ function exit(){
   window.close();
 }
 
+//Funcion para copiar el texto al clipboard
+function copy(){
+  //Tomo el texto del resultado y lo guardo en una variable
+  let text = document.getElementById("result").value;
+  //Lo mando a mi funcion copiar string a clipboard
+  copyStringToClipboard(text);
+}
+
+//Funcion para copiar mi string al Clipboard (usando event listener y NO onclick)
+function copyStringToClipboard (str) {
+   // Create new element
+   var el = document.createElement('textarea');
+   // Set value (string to be copied)
+   el.value = str;
+   // Set non-editable to avoid focus and move outside of view
+   el.setAttribute('readonly', '');
+   el.style = {position: 'absolute', left: '-9999px'};
+   document.body.appendChild(el);
+   // Select text inside element
+   el.select();
+   // Copy text to clipboard
+   document.execCommand('copy');
+   // Remove temporary element
+   document.body.removeChild(el);
+}
+
 //Funcion para regresar al menu inicial
 function refresh(){
   toggleVisibility("information", "menu");
@@ -66,24 +93,27 @@ function infoInput(menu, info){
 //Funcion para mostrar mensaje de bienvenida, usando el nombre ingresado en el inicio
 function greeting(){
   const nameInput = document.getElementById('userName').value; //Guardo el nombre en la variable nameInput
-  console.log(nameInput);
   let greeting = "Hola, " + nameInput + "! ¿Qué te gustaría hacer con tu mensaje?";
   document.getElementById("bienvenida").innerHTML = greeting;
 }
 
 //Funcion que determina el mensaje que se muestra para cifrar
 function cipherSelection(){
-  let title = "Ingresa tu mensaje a cifrar. Recuerda usar mayúsculas únicamente y no utilizar 'ñ' o caracteres especiales.";
+  let title = "Ingresa tu mensaje a cifrar. Puedes utilizar minúsculas, mayúsculas y caracteres especiales.";
   document.getElementById("inputInfo").innerHTML = title;
   document.getElementById("enterInfo").innerHTML = "Cifrar";
+  let input = document.getElementById("userText");
+  input.focus();
   flag = true;
 }
 
 //Funcion que determina el mensaje que se muestra para decifrar
 function decipherSelection(){
-  let title = "Ingresa tu mensaje a decifrar. Recuerda usar mayúsculas únicamente y no utilizar 'ñ' o caracteres especiales.";
+  let title = "Ingresa tu mensaje a decifrar. Puedes utilizar minúsculas, mayúsculas y caracteres especiales.";
   document.getElementById("inputInfo").innerHTML = title;
   document.getElementById("enterInfo").innerHTML = "Decifrar";
+  let input = document.getElementById("userText");
+  input.focus();
   flag = false;
 }
 
