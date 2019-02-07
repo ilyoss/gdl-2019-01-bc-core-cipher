@@ -49,6 +49,7 @@ function refresh(){
   toggleVisibility("information", "menu");
   document.getElementById("userText").value = "";
   document.getElementById("result").value = "Aquí se mostrará el resultado";
+  document.getElementById("offset").value = 25;
 }
 
 //Funcion que se activa al hacer click en el boton de "Comenzar", para ir al menu
